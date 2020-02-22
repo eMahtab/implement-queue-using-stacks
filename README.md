@@ -113,6 +113,6 @@ class MyQueue {
 ```
 
 # References :
-https://www.youtube.com/watch?v=Wg8IiY1LbII
-https://leetcode.com/articles/implement-queue-using-stacks
+1. https://www.youtube.com/watch?v=Wg8IiY1LbII
+2. https://leetcode.com/articles/implement-queue-using-stacks
 
