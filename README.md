@@ -25,7 +25,7 @@ queue.empty(); // returns false
 2. Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.
 3. You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).
 
-## Implementation : 2 Stacks
+## Implementation 1 : 2 Stacks
 
 ```java
 class MyQueue {
@@ -70,7 +70,7 @@ class MyQueue {
     }
 }
 ```
-## Implementation : 2 Stacks (Improvements)
+## Implementation 1 : 2 Stacks (Improvements)
 ```java
 class MyQueue {
 
@@ -110,6 +110,47 @@ class MyQueue {
         return stack.isEmpty();
     }
 }
+```
+
+## Implementation 2 : 2 Stacks
+```java
+class MyQueue {
+
+    /** Initialize your data structure here. */
+    private Stack<Integer> stack = new Stack<>();
+    private Stack<Integer> auxiliaryStack = new Stack<>();
+    private int front;
+    
+    /** Push element x to the back of queue. */
+    public void push(int x) {
+        if(stack.isEmpty())
+            front = x;
+        stack.push(x);
+    }
+    
+    /** Removes the element from in front of queue and returns that element. */
+    public int pop() {
+        if (auxiliaryStack.isEmpty()) {
+            while (!stack.isEmpty())
+              auxiliaryStack.push(stack.pop());
+        }
+        return auxiliaryStack.pop();  
+    }
+    
+    /** Get the front element. */
+    public int peek() {
+       if (!auxiliaryStack.isEmpty()) {
+            return auxiliaryStack.peek();
+        }
+       return front;
+    }
+    
+    /** Returns whether the queue is empty. */
+    public boolean empty() {
+        return stack.isEmpty() && auxiliaryStack.isEmpty();
+    }
+}
+
 ```
 
 # References :
