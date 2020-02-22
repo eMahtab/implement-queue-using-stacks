@@ -3,10 +3,11 @@
 
 Implement the following operations of a queue using stacks.
 
-push(x) -- Push element x to the back of queue.
-pop() -- Removes the element from in front of queue.
-peek() -- Get the front element.
-empty() -- Return whether the queue is empty.
+1. push(x) -- Push element x to the back of queue.
+2. pop() -- Removes the element from in front of queue.
+3. peek() -- Get the front element.
+4. empty() -- Return whether the queue is empty.
+
 ```
 Example:
 
