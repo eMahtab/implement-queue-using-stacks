@@ -112,7 +112,7 @@ class MyQueue {
 }
 ```
 
-## Implementation 2 : 2 Stacks
+## Implementation 2 : 2 Stacks (Much better approach)
 ```java
 class MyQueue {
 
