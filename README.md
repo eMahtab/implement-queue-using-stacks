@@ -2,7 +2,7 @@
 ## https://leetcode.com/problems/implement-queue-using-stacks
 
 
-## Implementation :
+## Implementation : 2 Stacks
 
 ```java
 class MyQueue {
@@ -47,4 +47,44 @@ class MyQueue {
     }
 }
 ```
+## Implementation : 2 Stacks (Improvements)
+```java
+class MyQueue {
 
+    /** Initialize your data structure here. */
+    private Stack<Integer> stack = new Stack<>();
+    private Stack<Integer> auxiliaryStack = new Stack<>();
+    private int front;
+    
+    /** Push element x to the back of queue. */
+    public void push(int x) {
+        if(stack.isEmpty())
+            front = x;
+        stack.push(x);
+    }
+    
+    /** Removes the element from in front of queue and returns that element. */
+    public int pop() {
+        while(!stack.isEmpty()){
+            auxiliaryStack.push(stack.pop());
+        }
+        int top = auxiliaryStack.pop();
+        while(!auxiliaryStack.isEmpty()){ 
+            if(stack.isEmpty())
+                front = auxiliaryStack.peek();
+            stack.push(auxiliaryStack.pop());
+        }
+        return top;
+    }
+    
+    /** Get the front element. */
+    public int peek() {
+       return front;
+    }
+    
+    /** Returns whether the queue is empty. */
+    public boolean empty() {
+        return stack.isEmpty();
+    }
+}
+```
